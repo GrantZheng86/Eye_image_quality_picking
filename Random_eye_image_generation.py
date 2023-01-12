@@ -7,7 +7,7 @@ import os
 
 
 if __name__ == '__main__':
-    numbers = 150
+    numbers = 100
     base_folder = 'D:\\Gaze_Uncertainty_11_10\\Dropout_ith_uncertainty\\MPII\\Leave_one_out\\Fold_7_full\\vis'
     df = pd.read_csv(os.path.join(base_folder, 'result.csv'))
     people = int(df['Sample_names'][0].split('/')[1][1:])
