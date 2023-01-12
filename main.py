@@ -10,9 +10,14 @@ PHOTO_ROOT = "data"
 
 
 class SimpleLogging:
-    def __int__(self):
+    def __init__(self):
         self.left = 0
         self.right = 0
+
+    def updated(self):
+        if self.left != 0 and self.right != 0:
+            return True
+        return False
 
 
 class MainDisplayApp:
@@ -65,14 +70,13 @@ class MainDisplayApp:
         self.label_right['image'] = right_img
         self.add_button_to_frame()
 
-
     def add_button_to_frame(self):
         lg = tk.Button(self.root, text="Left Good", command=self.lg_callback)
         lm = tk.Button(self.root, text="Left Mid", command=self.lm_callback)
         lb = tk.Button(self.root, text="Left Bad", command=self.lb_callback)
-        rg = tk.Button(self.root, text="Right Good")
-        rm = tk.Button(self.root, text="Right Mid")
-        rb = tk.Button(self.root, text="Right Bad")
+        rg = tk.Button(self.root, text="Right Good", command=self.rg_callback)
+        rm = tk.Button(self.root, text="Right Mid", command=self.rm_callback)
+        rb = tk.Button(self.root, text="Right Bad", command=self.rb_callback)
         lg.grid(row=2, column=2)
         lm.grid(row=2, column=3)
         lb.grid(row=2, column=4)
@@ -108,6 +112,9 @@ class MainDisplayApp:
         self.update_image()
 
     def update_image(self):
+        if not self.log_file[self.current_displayed_image_person][self.current_displayed_image_num].updated():
+            return
+
         image_remaining_list = self.image_structure[self.current_displayed_image_person]
 
         if len(image_remaining_list) > 0:
