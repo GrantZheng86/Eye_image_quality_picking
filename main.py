@@ -122,6 +122,7 @@ class MainDisplayApp:
             else:
                 # Exist if all has been displayed
                 self.root.destroy()
+                return
 
         left_img, right_img = self.acquire_image()
         self.label_left.config(image=left_img)
