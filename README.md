@@ -20,3 +20,6 @@ To run the program: <br>
 <img align="left" src="Readme_images/Display.jpg" width=700>
 <br clear="left"/>
 
+5. The results are stored in csv, and will be saved in a folder called "Result" in the same directory as "main.py"
+<img align="left" src="Readme_images/Result_folder.jpg" width=700>
+<br clear="left"/>
