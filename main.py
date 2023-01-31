@@ -171,10 +171,12 @@ class MainDisplayApp:
 
     def acquire_image(self):
         left_full_path = os.path.join(PHOTO_ROOT, '{:03d}'.format(self.current_displayed_image_person), 'Left',
-                                      '{}.png'.format(self.current_displayed_image_num))
+                                      '{:03d}_{}.png'.format(self.current_displayed_image_person,
+                                                             self.current_displayed_image_num))
 
         right_full_path = os.path.join(PHOTO_ROOT, '{:03d}'.format(self.current_displayed_image_person), 'Right',
-                                       '{}.png'.format(self.current_displayed_image_num))
+                                       '{:03d}_{}.png'.format(self.current_displayed_image_person,
+                                                             self.current_displayed_image_num))
 
         left_img = Image.open(left_full_path)
         right_img = Image.open(right_full_path)
